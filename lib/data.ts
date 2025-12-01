@@ -444,6 +444,60 @@ export const projects: Project[] = [
     link: "https://form.example.com",
     github: "https://github.com/example/form-builder",
   },
+  {
+    title: "AquaFlowX",
+    description: "Focus on drinking water",
+    tech: ["Swift", "SwiftUI"],
+    link: "https://apps.apple.com/us/app/%E4%B8%93%E6%B3%A8%E6%97%B6%E5%88%BB/id6737592700",
+  },
+  {
+    title: "专注时刻",
+    description: "Productivity",
+    tech: ["Swift", "SwiftUI"],
+    link: "https://apps.apple.com/us/app/justsudoku/id6612009100",
+  },
+  {
+    title: "JustSudoku",
+    description: "A pure Sudoku game",
+    tech: ["Swift", "SwiftUI"],
+    link: "https://apps.apple.com/us/app/%E9%A1%BA%E5%8E%86/id6566170406",
+  },
+  {
+    title: "顺历",
+    description: "Utilities",
+    tech: ["Swift", "SwiftUI"],
+    link: "https://apps.apple.com/us/app/%E8%AF%97%E8%AF%8D%E6%B8%B8/id6532592189",
+  },
+  {
+    title: "诗词游",
+    description: "Lifestyle",
+    tech: ["Swift", "SwiftUI"],
+    link: "https://apps.apple.com/us/app/magic-focus/id6444272284",
+  },
+  {
+    title: "Magic Focus+",
+    description: "Focus on improving focus",
+    tech: ["Swift", "SwiftUI"],
+    link: "https://apps.apple.com/us/app/yixi%E6%96%87%E4%BB%B6%E6%B5%8F%E8%A7%88%E5%99%A8/id6443494827",
+  },
+  {
+    title: "YIXI文件浏览器",
+    description: "Utilities",
+    tech: ["Swift", "SwiftUI"],
+    link: "https://apps.apple.com/us/app/morsehelp/id6443531120",
+  },
+  {
+    title: "MorseHelp",
+    description: "Utilities",
+    tech: ["Swift", "SwiftUI"],
+    link: "https://apps.apple.com/us/app/bigtodoplus/id6443440799",
+  },
+  {
+    title: "BigTodoPlus",
+    description: "More comfortable to-do list",
+    tech: ["Swift", "SwiftUI"],
+    link: "https://apps.apple.com/us/developer/%E5%BF%97%E6%96%8C-%E6%9E%97/id529745886",
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
