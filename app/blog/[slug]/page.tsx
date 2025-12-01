@@ -1,14 +1,17 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { blogPosts, getBlogPost, formatDate } from "@/lib/data";
+import { getBlogPosts, getBlogPost, formatDate } from "@/lib/data";
 import type { Metadata } from "next";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
-  return blogPosts.map((post) => ({
+  const posts = getBlogPosts();
+  return posts.map((post) => ({
     slug: post.slug,
   }));
 }
@@ -68,62 +71,7 @@ export default async function BlogPostPage({ params }: Props) {
       </header>
 
       <div className="prose prose-zinc dark:prose-invert max-w-none">
-        {post.content.split("\n").map((paragraph, index) => {
-          const trimmed = paragraph.trim();
-          if (!trimmed) return null;
-
-          if (trimmed.startsWith("## ")) {
-            return (
-              <h2
-                key={index}
-                className="text-2xl font-semibold tracking-tight mt-10 mb-4"
-              >
-                {trimmed.slice(3)}
-              </h2>
-            );
-          }
-
-          if (trimmed.startsWith("### ")) {
-            return (
-              <h3
-                key={index}
-                className="text-xl font-semibold tracking-tight mt-8 mb-3"
-              >
-                {trimmed.slice(4)}
-              </h3>
-            );
-          }
-
-          if (trimmed.startsWith("```")) {
-            return null;
-          }
-
-          if (trimmed.startsWith("- **")) {
-            const match = trimmed.match(/^- \*\*(.+?)\*\* - (.+)$/);
-            if (match) {
-              return (
-                <p key={index} className="text-muted-foreground my-2 pl-4">
-                  <strong className="text-foreground">{match[1]}</strong> -{" "}
-                  {match[2]}
-                </p>
-              );
-            }
-          }
-
-          if (trimmed.match(/^\d+\. /)) {
-            return (
-              <p key={index} className="text-muted-foreground my-2 pl-4">
-                {trimmed}
-              </p>
-            );
-          }
-
-          return (
-            <p key={index} className="text-muted-foreground leading-7 my-4">
-              {trimmed}
-            </p>
-          );
-        })}
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
       </div>
 
       <footer className="mt-16 pt-8 border-t border-border">

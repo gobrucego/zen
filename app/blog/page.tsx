@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { blogPosts, formatDate } from "@/lib/data";
+import { getBlogPosts, formatDate } from "@/lib/data";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
+  const blogPosts = getBlogPosts();
   return (
     <div className="mx-auto max-w-3xl px-6 py-16">
       <header className="mb-12">

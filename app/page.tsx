@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { blogPosts, projects, formatDate } from "@/lib/data";
+import { getBlogPosts, projects, formatDate } from "@/lib/data";
 
 export default function Home() {
+  const blogPosts = getBlogPosts();
   const recentPosts = blogPosts.slice(0, 3);
   const featuredProjects = projects.slice(0, 3);
 
